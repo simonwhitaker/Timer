@@ -13,13 +13,20 @@ class CountdownTimer {
         case Initialized
         case Running
         case Paused
+        case Complete
     }
     
     var state: CountdownTimerState = .Initialized
     var initialDuration: TimeInterval
-    var elapsedAtLastPause: TimeInterval
-    var startTime: Date?
+    var tickTimerInterval: TimeInterval = 1.0
+    var tickCallback: ((CountdownTimer) -> Void)?
+    var didCompleteCallback: ((CountdownTimer) -> Void)?
     
+    
+    private var elapsedAtLastPause: TimeInterval
+    private var startTime: Date?
+    private var tickTimer: Timer?
+
     init(duration: TimeInterval) {
         self.initialDuration = duration
         self.elapsedAtLastPause = 0
@@ -29,6 +36,7 @@ class CountdownTimer {
     func start() {
         self.state = .Running
         self.startTime = Date()
+        self.startTickTimer()
     }
     
     func pause() {
@@ -48,6 +56,29 @@ class CountdownTimer {
         self.elapsedAtLastPause = 0
     }
     
+    private func startTickTimer() {
+        let timer = Timer(timeInterval: self.tickTimerInterval, repeats: true, block: { (t: Timer) in
+            if let callback = self.tickCallback {
+                callback(self)
+            }
+            if self.elapsed >= self.initialDuration {
+                self.state = .Complete
+                if let completeCallback = self.didCompleteCallback {
+                    completeCallback(self)
+                }
+                self.stopTickTimer()
+            }
+        })
+        RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
+        timer.fire()
+        self.tickTimer = timer
+    }
+    
+    private func stopTickTimer() {
+        self.tickTimer?.invalidate()
+        self.tickTimer = nil
+    }
+    
     var elapsed: TimeInterval {
         get {
             switch self.state {
@@ -61,6 +92,8 @@ class CountdownTimer {
                 return self.elapsedAtLastPause
             case .Initialized:
                 return 0
+            case .Complete:
+                return self.initialDuration
             }
         }
     }
@@ -68,7 +101,7 @@ class CountdownTimer {
     var timeRemainingString: String {
         get {
             let remaining = self.initialDuration - self.elapsed
-            let seconds = Int(remaining)
+            let seconds = Int(ceil(remaining))
             let minutes = seconds / 60
             let hours = minutes / 60
             return String(format: "%02d:%02d:%02d", arguments: [hours, minutes % 60, seconds % 60])

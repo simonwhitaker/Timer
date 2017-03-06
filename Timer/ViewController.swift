@@ -14,7 +14,7 @@ class ViewController: NSViewController {
     @IBOutlet var startButton: NSButton?
     @IBOutlet var resetButton: NSButton?
     
-    var countdownTimer: CountdownTimer = CountdownTimer(duration: 5 * 60)
+    var countdownTimer = CountdownTimer(duration: 5 * 60)
     var uiUpdateTimer: Timer?
     
     override func viewDidLoad() {
@@ -23,9 +23,17 @@ class ViewController: NSViewController {
         // Do any additional setup after loading the view.
         self.timeLabel?.isEditable = false
         self.timeLabel?.stringValue = countdownTimer.timeRemainingString
-        self.updateButtonState()
+        self.updateUI()
+        
+        self.countdownTimer.tickCallback = {(timer: CountdownTimer) -> Void in
+            self.updateUI()
+        }
+        
+        self.countdownTimer.didCompleteCallback = {(timer: CountdownTimer) -> Void in
+            self.updateUI()
+        }
     }
-
+    
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
@@ -36,55 +44,37 @@ class ViewController: NSViewController {
         switch self.countdownTimer.state {
         case .Running:
             self.countdownTimer.pause()
-            self.stopUIUpdateTimer()
         case .Initialized:
             self.countdownTimer.start()
-            self.startUIUpdateTimer()
         case .Paused:
             self.countdownTimer.resume()
-            self.startUIUpdateTimer()
+        case .Complete:
+            break
         }
-        self.updateButtonState()
+        self.updateUI()
     }
     
     @IBAction func handleResetButton(sender: NSControl) {
         self.countdownTimer.reset()
-        self.stopUIUpdateTimer()
-        self.updateButtonState()
+        self.view.window?.makeFirstResponder(self.startButton)
+        self.updateUI()
     }
     
-    func startUIUpdateTimer() {
-        let timer = Timer(timeInterval: 1, repeats: true, block: { (t: Timer) in
-            DispatchQueue.main.async {
-                self.updateTimeDisplay()
-            }
-        })
-        RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
-        timer.fire()
-        self.uiUpdateTimer = timer
-    }
-    
-    func stopUIUpdateTimer() {
-        self.uiUpdateTimer?.invalidate()
-        self.uiUpdateTimer = nil
-    }
-    
-    func updateButtonState() {
+    func updateUI() {
         let state = countdownTimer.state
         self.resetButton?.isEnabled = state != .Initialized
+        self.startButton?.isEnabled = state != .Complete
         switch state {
         case .Running:
             self.startButton?.title = "Pause"
-        case .Initialized:
+        case .Initialized, .Complete:
             self.startButton?.title = "Start"
         case .Paused:
             self.startButton?.title = "Resume"
         }
-        self.updateTimeDisplay()
-    }
-    
-    func updateTimeDisplay() {
+
         self.timeLabel?.stringValue = self.countdownTimer.timeRemainingString
+        self.timeLabel?.textColor = state == .Complete ? NSColor.gray : NSColor.black
     }
 }
 
