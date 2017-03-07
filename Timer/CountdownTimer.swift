@@ -22,7 +22,6 @@ class CountdownTimer {
     var tickCallback: ((CountdownTimer) -> Void)?
     var didCompleteCallback: ((CountdownTimer) -> Void)?
     
-    
     private var elapsedAtLastPause: TimeInterval
     private var startTime: Date?
     private var tickTimer: Timer?
@@ -40,7 +39,7 @@ class CountdownTimer {
     }
     
     func pause() {
-        let temp = self.elapsed
+        let temp = self.timeElapsed
         self.state = .Paused
         self.elapsedAtLastPause = temp
     }
@@ -61,7 +60,7 @@ class CountdownTimer {
             if let callback = self.tickCallback {
                 callback(self)
             }
-            if self.elapsed >= self.initialDuration {
+            if self.timeElapsed >= self.initialDuration {
                 self.state = .Complete
                 if let completeCallback = self.didCompleteCallback {
                     completeCallback(self)
@@ -79,7 +78,7 @@ class CountdownTimer {
         self.tickTimer = nil
     }
     
-    var elapsed: TimeInterval {
+    var timeElapsed: TimeInterval {
         get {
             switch self.state {
             case .Running:
@@ -98,13 +97,8 @@ class CountdownTimer {
         }
     }
     
-    var timeRemainingString: String {
-        get {
-            let remaining = self.initialDuration - self.elapsed
-            let seconds = Int(ceil(remaining))
-            let minutes = seconds / 60
-            let hours = minutes / 60
-            return String(format: "%02d:%02d:%02d", arguments: [hours, minutes % 60, seconds % 60])
-        }
+    var timeRemaining: TimeInterval {
+        return self.initialDuration - self.timeElapsed
     }
 }
+

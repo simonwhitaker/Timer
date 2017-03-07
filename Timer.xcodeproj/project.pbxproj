@@ -12,6 +12,7 @@
 		F43766CB1E6C040900C43244 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F43766CA1E6C040900C43244 /* Assets.xcassets */; };
 		F43766CE1E6C040900C43244 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F43766CC1E6C040900C43244 /* Main.storyboard */; };
 		F472742A1E6D1A690027B398 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47274291E6D1A690027B398 /* CountdownTimer.swift */; };
+		F4C6E5071E6F52C900AAE4C9 /* TimeIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6E5061E6F52C900AAE4C9 /* TimeIntervalFormatter.swift */; };
 		F4E05E331E6DF6EA00D58737 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E05E321E6DF6EA00D58737 /* Document.swift */; };
 		F4E05E351E6DF9DB00D58737 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E05E341E6DF9DB00D58737 /* WindowController.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 		F43766CD1E6C040900C43244 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F43766CF1E6C040900C43244 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F47274291E6D1A690027B398 /* CountdownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
+		F4C6E5061E6F52C900AAE4C9 /* TimeIntervalFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalFormatter.swift; sourceTree = "<group>"; };
 		F4E05E321E6DF6EA00D58737 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		F4E05E341E6DF9DB00D58737 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,7 @@
 				F43766CF1E6C040900C43244 /* Info.plist */,
 				F47274291E6D1A690027B398 /* CountdownTimer.swift */,
 				F4E05E321E6DF6EA00D58737 /* Document.swift */,
+				F4C6E5061E6F52C900AAE4C9 /* TimeIntervalFormatter.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4C6E5071E6F52C900AAE4C9 /* TimeIntervalFormatter.swift in Sources */,
 				F4E05E331E6DF6EA00D58737 /* Document.swift in Sources */,
 				F4E05E351E6DF9DB00D58737 /* WindowController.swift in Sources */,
 				F43766C91E6C040900C43244 /* ViewController.swift in Sources */,

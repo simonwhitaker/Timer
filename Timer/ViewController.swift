@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet var timeLabel: NSTextField?
     @IBOutlet var startButton: NSButton?
     @IBOutlet var resetButton: NSButton?
@@ -19,18 +19,13 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        self.timeLabel?.isEditable = false
-        self.timeLabel?.stringValue = countdownTimer.timeRemainingString
+        self.timeLabel?.delegate = self
+        self.timeLabel?.formatter = TimeIntervalFormatter()
+        
+        self.countdownTimer.tickCallback = {(timer: CountdownTimer) -> Void in self.updateUI() }
+        self.countdownTimer.didCompleteCallback = {(timer: CountdownTimer) -> Void in self.updateUI() }
+
         self.updateUI()
-        
-        self.countdownTimer.tickCallback = {(timer: CountdownTimer) -> Void in
-            self.updateUI()
-        }
-        
-        self.countdownTimer.didCompleteCallback = {(timer: CountdownTimer) -> Void in
-            self.updateUI()
-        }
     }
     
     override var representedObject: Any? {
@@ -63,6 +58,7 @@ class ViewController: NSViewController {
         let state = countdownTimer.state
         self.resetButton?.isEnabled = state != .Initialized
         self.startButton?.isEnabled = state != .Complete
+
         switch state {
         case .Running:
             self.startButton?.title = "Pause"
@@ -72,7 +68,8 @@ class ViewController: NSViewController {
             self.startButton?.title = "Resume"
         }
 
-        self.timeLabel?.stringValue = self.countdownTimer.timeRemainingString
+        self.timeLabel?.isEditable = state == .Initialized
+        self.timeLabel?.doubleValue = self.countdownTimer.timeRemaining
         self.timeLabel?.textColor = state == .Complete ? NSColor.gray : NSColor.black
     }
 }
