@@ -9,7 +9,6 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
     @IBOutlet var timeLabel: NSTextField?
     @IBOutlet var startButton: NSButton?
     @IBOutlet var resetButton: NSButton?
