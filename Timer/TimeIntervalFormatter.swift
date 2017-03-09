@@ -8,28 +8,37 @@
 
 import Foundation
 
+let separatorCharacter: Character = ":"
+let separatorString: String = String(separatorCharacter)
+
 class TimeIntervalFormatter: NumberFormatter {
-    let separator = ":"
+    let numberFormatter = NumberFormatter()
     
-    override func string(from number: NSNumber) -> String? {
+    override func string(for obj: Any?) -> String? {
+        guard let number = obj as? NSNumber else {
+            return nil
+        }
         let seconds = Int(ceil(number.doubleValue))
         let minutes = seconds / 60
         let hours = minutes / 60
-        return String(format: "%02d%@%02d%@ %02d", arguments: [hours, separator, minutes % 60, separator, seconds % 60])
+        return String(format: "%02d%@%02d%@%02d", arguments: [hours, separatorString, minutes % 60, separatorString, seconds % 60])
     }
     
-    override func number(from string: String) -> NSNumber? {
-        let components = string.components(separatedBy: separator)
-        assert(components.count == 3, "Expected 3 components, got \(components.count)")
+    override func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>?, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool {
+        let components = string.components(separatedBy: separatorString)
+        if components.count > 3 {
+            return false
+        }
         
         var sum = 0
         for component in components {
             sum *= 60
-            if let val = super.number(from: component)?.intValue {
+            if let val = numberFormatter.number(from: component)?.intValue {
                 sum += val
             }
         }
-        return NSNumber(value: sum)
+        obj?.pointee = NSNumber(value: sum)
+        return true
     }
     
     override func isPartialStringValid(_ partialString: String, newEditingString newString: AutoreleasingUnsafeMutablePointer<NSString?>?, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool {
@@ -41,10 +50,10 @@ class TimeIntervalFormatter: NumberFormatter {
         
         var string = ""
         for char in partialString.characters.reversed() {
-            if char != ":" {
+            if char != separatorCharacter {
                 string = String(char) + string
                 if string.characters.count == 3 || string.characters.count == 6 {
-                    string.insert(":", at: string.index(string.startIndex, offsetBy: 1))
+                    string.insert(separatorCharacter, at: string.index(string.startIndex, offsetBy: 1))
                 }
             }
         }

@@ -39,6 +39,10 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         case .Running:
             self.countdownTimer.pause()
         case .Initialized:
+            guard let duration = self.timeLabel?.objectValue as? NSNumber else {
+                return
+            }
+            self.countdownTimer.initialDuration = duration.doubleValue
             self.countdownTimer.start()
         case .Paused:
             self.countdownTimer.resume()
