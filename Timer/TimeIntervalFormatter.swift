@@ -31,11 +31,17 @@ class TimeIntervalFormatter: NumberFormatter {
         }
         
         var sum = 0
-        for component in components {
-            sum *= 60
-            if let val = numberFormatter.number(from: component)?.intValue {
-                sum += val
+        var multiplier = 1
+        for (i, component) in components.reversed().enumerated() {
+            guard let val = numberFormatter.number(from: component)?.intValue else {
+                return false
             }
+            if i < 2 && (val < 0 || val > 59) {
+                // Minutes and seconds should be in the range 0-59
+                return false
+            }
+            sum += val * multiplier
+            multiplier *= 60
         }
         obj?.pointee = NSNumber(value: sum)
         return true
