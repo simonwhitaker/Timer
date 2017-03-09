@@ -42,17 +42,20 @@ class CountdownTimer {
         let temp = self.timeElapsed
         self.state = .Paused
         self.elapsedAtLastPause = temp
+        self.stopTickTimer()
     }
     
     func resume() {
         self.state = .Running
         self.startTime = Date()
+        self.startTickTimer()
     }
     
     func reset() {
         self.state = .Initialized
         self.startTime = nil
         self.elapsedAtLastPause = 0
+        self.stopTickTimer()
     }
     
     private func startTickTimer() {
