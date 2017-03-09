@@ -34,6 +34,13 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
   }
 
+  override func viewWillLayout() {
+    super.viewWillLayout()
+    if let f = timeLabel?.font {
+      timeLabel?.font = NSFont(name: f.fontName, size: view.frame.width / 6)
+    }
+  }
+
   @IBAction func handleStartButton(sender: NSControl) {
     switch self.countdownTimer.state {
     case .Running:
