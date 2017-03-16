@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController, NSTextFieldDelegate {
+class ViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDelegate {
   @IBOutlet var timeLabel: NSTextField?
   @IBOutlet var startButton: NSButton?
   @IBOutlet var resetButton: NSButton?
@@ -83,5 +83,39 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     self.timeLabel?.doubleValue = self.countdownTimer.timeRemaining
     self.timeLabel?.textColor = state == .Complete ? NSColor.gray : NSColor.black
   }
+
+  @available(OSX 10.12.2, *)
+  override func makeTouchBar() -> NSTouchBar? {
+    let mainBar = NSTouchBar()
+    mainBar.delegate = self
+    mainBar.customizationIdentifier = .timerBar
+    mainBar.defaultItemIdentifiers = [.addTimerItem, .startPauseItem, .resetItem]
+    mainBar.customizationAllowedItemIdentifiers = [.addTimerItem, .startPauseItem, .resetItem]
+
+    return mainBar
+  }
+
+  @available(OSX 10.12.2, *)
+  func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItemIdentifier) -> NSTouchBarItem? {
+    let customViewItem = NSCustomTouchBarItem(identifier: identifier)
+    switch identifier {
+    case NSTouchBarItemIdentifier.startPauseItem:
+      customViewItem.view = NSButton(title: "Start/Pause", target: self, action: #selector(self.handleStartButton))
+      return customViewItem
+    case NSTouchBarItemIdentifier.resetItem:
+      customViewItem.view = NSButton(title: "Reset", target: self, action: #selector(self.handleResetButton))
+      return customViewItem
+    case NSTouchBarItemIdentifier.addTimerItem:
+      customViewItem.view = NSButton(title: "Add Timer", target: self, action: #selector(self.handleAddTimerButton))
+      return customViewItem
+    default:
+      return nil
+    }
+  }
+
+  func handleAddTimerButton() {
+    NSDocumentController.shared().newDocument(self)
+  }
+
 }
 

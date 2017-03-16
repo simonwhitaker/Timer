@@ -10,6 +10,8 @@ import AppKit
 
 extension NSTouchBarItemIdentifier {
   static let addTimerItem = NSTouchBarItemIdentifier("org.netcetera.Timer.addTimer")
+  static let startPauseItem = NSTouchBarItemIdentifier("org.netcetera.Timer.startPause")
+  static let resetItem = NSTouchBarItemIdentifier("org.netcetera.Timer.reset")
 }
 
 extension NSTouchBarCustomizationIdentifier {

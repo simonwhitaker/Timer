@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class WindowController: NSWindowController, NSTouchBarDelegate {
+class WindowController: NSWindowController {
   required init?(coder: NSCoder) {
     super.init(coder: coder)
     shouldCascadeWindows = true
@@ -27,33 +27,4 @@ class WindowController: NSWindowController, NSTouchBarDelegate {
       window.setFrameOrigin(NSPoint(x: offsetFromLeftOfScreen, y: newOriginY))
     }
   }
-
-
-  @available(OSX 10.12.2, *)
-  override func makeTouchBar() -> NSTouchBar? {
-    let mainBar = NSTouchBar()
-    mainBar.delegate = self
-    mainBar.customizationIdentifier = .timerBar
-    mainBar.defaultItemIdentifiers = [.addTimerItem]
-    mainBar.customizationAllowedItemIdentifiers = [.addTimerItem]
-
-    return mainBar
-  }
-
-  @available(OSX 10.12.2, *)
-  func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItemIdentifier) -> NSTouchBarItem? {
-    switch identifier {
-    case NSTouchBarItemIdentifier.addTimerItem:
-      let customViewItem = NSCustomTouchBarItem(identifier: identifier)
-      customViewItem.view = NSButton(title: "Add Timer", target: self, action: #selector(self.handleAddTimerButton))
-      return customViewItem
-    default:
-      return nil
-    }
-  }
-
-  func handleAddTimerButton() {
-    NSDocumentController.shared().newDocument(self)
-  }
-
 }
