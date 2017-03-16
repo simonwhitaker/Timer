@@ -27,4 +27,12 @@ class WindowController: NSWindowController {
       window.setFrameOrigin(NSPoint(x: offsetFromLeftOfScreen, y: newOriginY))
     }
   }
+
+  static var windowNumber = 1
+
+  override func windowTitle(forDocumentDisplayName displayName: String) -> String {
+    let result = "Timer \(WindowController.windowNumber)"
+    WindowController.windowNumber += 1
+    return result
+  }
 }
