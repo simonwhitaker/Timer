@@ -43,6 +43,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F40E857D1E7B32090040DF8B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F43766C81E6C040900C43244 /* TimerViewController.swift */,
+				F4E05E341E6DF9DB00D58737 /* TimerWindowController.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		F40E857E1E7B32160040DF8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F47274291E6D1A690027B398 /* CountdownTimer.swift */,
+				F4C6E5061E6F52C900AAE4C9 /* TimeIntervalFormatter.swift */,
+				4A4D432D1E79DCCB0007010E /* TouchBarIdentifiers.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F40E857F1E7B32270040DF8B /* App Structure */ = {
+			isa = PBXGroup;
+			children = (
+				F43766C61E6C040900C43244 /* AppDelegate.swift */,
+				F4E05E321E6DF6EA00D58737 /* TimerDocument.swift */,
+			);
+			name = "App Structure";
+			sourceTree = "<group>";
+		};
 		F43766BA1E6C040900C43244 = {
 			isa = PBXGroup;
 			children = (
@@ -62,16 +90,12 @@
 		F43766C51E6C040900C43244 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
-				F43766C61E6C040900C43244 /* AppDelegate.swift */,
-				F43766C81E6C040900C43244 /* TimerViewController.swift */,
+				F40E857F1E7B32270040DF8B /* App Structure */,
+				F40E857D1E7B32090040DF8B /* UI */,
+				F40E857E1E7B32160040DF8B /* Model */,
 				F43766CA1E6C040900C43244 /* Assets.xcassets */,
 				F43766CC1E6C040900C43244 /* Main.storyboard */,
-				F4E05E341E6DF9DB00D58737 /* TimerWindowController.swift */,
 				F43766CF1E6C040900C43244 /* Info.plist */,
-				F47274291E6D1A690027B398 /* CountdownTimer.swift */,
-				F4E05E321E6DF6EA00D58737 /* TimerDocument.swift */,
-				F4C6E5061E6F52C900AAE4C9 /* TimeIntervalFormatter.swift */,
-				4A4D432D1E79DCCB0007010E /* TouchBarIdentifiers.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
