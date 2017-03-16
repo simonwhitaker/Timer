@@ -48,6 +48,7 @@
 			children = (
 				F43766C81E6C040900C43244 /* TimerViewController.swift */,
 				F4E05E341E6DF9DB00D58737 /* TimerWindowController.swift */,
+				4A4D432D1E79DCCB0007010E /* TouchBarIdentifiers.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -57,7 +58,6 @@
 			children = (
 				F47274291E6D1A690027B398 /* CountdownTimer.swift */,
 				F4C6E5061E6F52C900AAE4C9 /* TimeIntervalFormatter.swift */,
-				4A4D432D1E79DCCB0007010E /* TouchBarIdentifiers.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
