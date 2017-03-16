@@ -1,5 +1,5 @@
 //
-//  Document.swift
+//  TimerDocument.swift
 //  Timer
 //
 //  Created by Simon on 06/03/2017.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class Document: NSDocument {
+class TimerDocument: NSDocument {
   override init() {
     super.init()
     // Add your subclass-specific initialization here.

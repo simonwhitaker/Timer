@@ -9,27 +9,27 @@
 /* Begin PBXBuildFile section */
 		4A4D432E1E79DCCB0007010E /* TouchBarIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D432D1E79DCCB0007010E /* TouchBarIdentifiers.swift */; };
 		F43766C71E6C040900C43244 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43766C61E6C040900C43244 /* AppDelegate.swift */; };
-		F43766C91E6C040900C43244 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43766C81E6C040900C43244 /* ViewController.swift */; };
+		F43766C91E6C040900C43244 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43766C81E6C040900C43244 /* TimerViewController.swift */; };
 		F43766CB1E6C040900C43244 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F43766CA1E6C040900C43244 /* Assets.xcassets */; };
 		F43766CE1E6C040900C43244 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F43766CC1E6C040900C43244 /* Main.storyboard */; };
 		F472742A1E6D1A690027B398 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47274291E6D1A690027B398 /* CountdownTimer.swift */; };
 		F4C6E5071E6F52C900AAE4C9 /* TimeIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6E5061E6F52C900AAE4C9 /* TimeIntervalFormatter.swift */; };
-		F4E05E331E6DF6EA00D58737 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E05E321E6DF6EA00D58737 /* Document.swift */; };
-		F4E05E351E6DF9DB00D58737 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E05E341E6DF9DB00D58737 /* WindowController.swift */; };
+		F4E05E331E6DF6EA00D58737 /* TimerDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E05E321E6DF6EA00D58737 /* TimerDocument.swift */; };
+		F4E05E351E6DF9DB00D58737 /* TimerWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E05E341E6DF9DB00D58737 /* TimerWindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4A4D432D1E79DCCB0007010E /* TouchBarIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarIdentifiers.swift; sourceTree = "<group>"; };
 		F43766C31E6C040900C43244 /* Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43766C61E6C040900C43244 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F43766C81E6C040900C43244 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F43766C81E6C040900C43244 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		F43766CA1E6C040900C43244 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F43766CD1E6C040900C43244 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F43766CF1E6C040900C43244 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F47274291E6D1A690027B398 /* CountdownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
 		F4C6E5061E6F52C900AAE4C9 /* TimeIntervalFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalFormatter.swift; sourceTree = "<group>"; };
-		F4E05E321E6DF6EA00D58737 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		F4E05E341E6DF9DB00D58737 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		F4E05E321E6DF6EA00D58737 /* TimerDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerDocument.swift; sourceTree = "<group>"; };
+		F4E05E341E6DF9DB00D58737 /* TimerWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerWindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,13 +63,13 @@
 			isa = PBXGroup;
 			children = (
 				F43766C61E6C040900C43244 /* AppDelegate.swift */,
-				F43766C81E6C040900C43244 /* ViewController.swift */,
+				F43766C81E6C040900C43244 /* TimerViewController.swift */,
 				F43766CA1E6C040900C43244 /* Assets.xcassets */,
 				F43766CC1E6C040900C43244 /* Main.storyboard */,
-				F4E05E341E6DF9DB00D58737 /* WindowController.swift */,
+				F4E05E341E6DF9DB00D58737 /* TimerWindowController.swift */,
 				F43766CF1E6C040900C43244 /* Info.plist */,
 				F47274291E6D1A690027B398 /* CountdownTimer.swift */,
-				F4E05E321E6DF6EA00D58737 /* Document.swift */,
+				F4E05E321E6DF6EA00D58737 /* TimerDocument.swift */,
 				F4C6E5061E6F52C900AAE4C9 /* TimeIntervalFormatter.swift */,
 				4A4D432D1E79DCCB0007010E /* TouchBarIdentifiers.swift */,
 			);
@@ -150,9 +150,9 @@
 			files = (
 				4A4D432E1E79DCCB0007010E /* TouchBarIdentifiers.swift in Sources */,
 				F4C6E5071E6F52C900AAE4C9 /* TimeIntervalFormatter.swift in Sources */,
-				F4E05E331E6DF6EA00D58737 /* Document.swift in Sources */,
-				F4E05E351E6DF9DB00D58737 /* WindowController.swift in Sources */,
-				F43766C91E6C040900C43244 /* ViewController.swift in Sources */,
+				F4E05E331E6DF6EA00D58737 /* TimerDocument.swift in Sources */,
+				F4E05E351E6DF9DB00D58737 /* TimerWindowController.swift in Sources */,
+				F43766C91E6C040900C43244 /* TimerViewController.swift in Sources */,
 				F472742A1E6D1A690027B398 /* CountdownTimer.swift in Sources */,
 				F43766C71E6C040900C43244 /* AppDelegate.swift in Sources */,
 			);

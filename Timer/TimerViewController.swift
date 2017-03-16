@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TimerViewController.swift
 //  Timer
 //
 //  Created by Simon on 05/03/2017.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDelegate {
+class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDelegate {
   @IBOutlet var timeLabel: NSTextField?
   @IBOutlet var startButton: NSButton?
   @IBOutlet var resetButton: NSButton?

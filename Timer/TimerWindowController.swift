@@ -1,5 +1,5 @@
 //
-//  WindowController.swift
+//  TimerWindowController.swift
 //  Timer
 //
 //  Created by Simon on 06/03/2017.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class WindowController: NSWindowController {
+class TimerWindowController: NSWindowController {
   required init?(coder: NSCoder) {
     super.init(coder: coder)
     shouldCascadeWindows = true
@@ -31,8 +31,8 @@ class WindowController: NSWindowController {
   static var windowNumber = 1
 
   override func windowTitle(forDocumentDisplayName displayName: String) -> String {
-    let result = "Timer \(WindowController.windowNumber)"
-    WindowController.windowNumber += 1
+    let result = "Timer \(TimerWindowController.windowNumber)"
+    TimerWindowController.windowNumber += 1
     return result
   }
 }
