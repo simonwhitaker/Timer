@@ -13,10 +13,22 @@
 		F43766CB1E6C040900C43244 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F43766CA1E6C040900C43244 /* Assets.xcassets */; };
 		F43766CE1E6C040900C43244 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F43766CC1E6C040900C43244 /* Main.storyboard */; };
 		F472742A1E6D1A690027B398 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47274291E6D1A690027B398 /* CountdownTimer.swift */; };
+		F489C8EE1E7B32E900711E04 /* TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F489C8ED1E7B32E900711E04 /* TimerTests.swift */; };
+		F489C8F51E7B352C00711E04 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47274291E6D1A690027B398 /* CountdownTimer.swift */; };
 		F4C6E5071E6F52C900AAE4C9 /* TimeIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6E5061E6F52C900AAE4C9 /* TimeIntervalFormatter.swift */; };
 		F4E05E331E6DF6EA00D58737 /* TimerDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E05E321E6DF6EA00D58737 /* TimerDocument.swift */; };
 		F4E05E351E6DF9DB00D58737 /* TimerWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E05E341E6DF9DB00D58737 /* TimerWindowController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F489C8F01E7B32E900711E04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F43766BB1E6C040900C43244 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F43766C21E6C040900C43244;
+			remoteInfo = Timer;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4A4D432D1E79DCCB0007010E /* TouchBarIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarIdentifiers.swift; sourceTree = "<group>"; };
@@ -27,6 +39,9 @@
 		F43766CD1E6C040900C43244 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F43766CF1E6C040900C43244 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F47274291E6D1A690027B398 /* CountdownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
+		F489C8EB1E7B32E900711E04 /* TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F489C8ED1E7B32E900711E04 /* TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTests.swift; sourceTree = "<group>"; };
+		F489C8EF1E7B32E900711E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4C6E5061E6F52C900AAE4C9 /* TimeIntervalFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalFormatter.swift; sourceTree = "<group>"; };
 		F4E05E321E6DF6EA00D58737 /* TimerDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerDocument.swift; sourceTree = "<group>"; };
 		F4E05E341E6DF9DB00D58737 /* TimerWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerWindowController.swift; sourceTree = "<group>"; };
@@ -34,6 +49,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		F43766C01E6C040900C43244 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F489C8E81E7B32E900711E04 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -75,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				F43766C51E6C040900C43244 /* Timer */,
+				F489C8EC1E7B32E900711E04 /* TimerTests */,
 				F43766C41E6C040900C43244 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -83,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				F43766C31E6C040900C43244 /* Timer.app */,
+				F489C8EB1E7B32E900711E04 /* TimerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -98,6 +122,15 @@
 				F43766CF1E6C040900C43244 /* Info.plist */,
 			);
 			path = Timer;
+			sourceTree = "<group>";
+		};
+		F489C8EC1E7B32E900711E04 /* TimerTests */ = {
+			isa = PBXGroup;
+			children = (
+				F489C8ED1E7B32E900711E04 /* TimerTests.swift */,
+				F489C8EF1E7B32E900711E04 /* Info.plist */,
+			);
+			path = TimerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +153,24 @@
 			productReference = F43766C31E6C040900C43244 /* Timer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F489C8EA1E7B32E900711E04 /* TimerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F489C8F21E7B32E900711E04 /* Build configuration list for PBXNativeTarget "TimerTests" */;
+			buildPhases = (
+				F489C8E71E7B32E900711E04 /* Sources */,
+				F489C8E81E7B32E900711E04 /* Frameworks */,
+				F489C8E91E7B32E900711E04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F489C8F11E7B32E900711E04 /* PBXTargetDependency */,
+			);
+			name = TimerTests;
+			productName = TimerTests;
+			productReference = F489C8EB1E7B32E900711E04 /* TimerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -131,6 +182,11 @@
 				ORGANIZATIONNAME = "Simon Whitaker";
 				TargetAttributes = {
 					F43766C21E6C040900C43244 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = VW9QM42U4U;
+						ProvisioningStyle = Automatic;
+					};
+					F489C8EA1E7B32E900711E04 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = VW9QM42U4U;
 						ProvisioningStyle = Automatic;
@@ -151,6 +207,7 @@
 			projectRoot = "";
 			targets = (
 				F43766C21E6C040900C43244 /* Timer */,
+				F489C8EA1E7B32E900711E04 /* TimerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -162,6 +219,13 @@
 			files = (
 				F43766CB1E6C040900C43244 /* Assets.xcassets in Resources */,
 				F43766CE1E6C040900C43244 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F489C8E91E7B32E900711E04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +246,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F489C8E71E7B32E900711E04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F489C8EE1E7B32E900711E04 /* TimerTests.swift in Sources */,
+				F489C8F51E7B352C00711E04 /* CountdownTimer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F489C8F11E7B32E900711E04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F43766C21E6C040900C43244 /* Timer */;
+			targetProxy = F489C8F01E7B32E900711E04 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F43766CC1E6C040900C43244 /* Main.storyboard */ = {
@@ -314,6 +395,32 @@
 			};
 			name = Release;
 		};
+		F489C8F31E7B32E900711E04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = VW9QM42U4U;
+				INFOPLIST_FILE = TimerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.netcetera.TimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F489C8F41E7B32E900711E04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = VW9QM42U4U;
+				INFOPLIST_FILE = TimerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.netcetera.TimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -334,6 +441,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		F489C8F21E7B32E900711E04 /* Build configuration list for PBXNativeTarget "TimerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F489C8F31E7B32E900711E04 /* Debug */,
+				F489C8F41E7B32E900711E04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
