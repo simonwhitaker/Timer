@@ -12,10 +12,10 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
   @IBOutlet var timeLabel: NSTextField?
   @IBOutlet var startButton: NSButton?
   @IBOutlet var resetButton: NSButton?
-
-  var countdownTimer = CountdownTimer(duration: 5 * 60)
   var uiUpdateTimer: Timer?
-  var touchBarStartButton: NSButton?
+
+  let countdownTimer = CountdownTimer(duration: 5 * 60)
+  let touchBarStartButton = NSButton(title: "", target: nil, action: nil)
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,6 +25,10 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
 
     self.countdownTimer.tickCallback = {(timer: CountdownTimer) -> Void in self.updateUI() }
     self.countdownTimer.didCompleteCallback = {(timer: CountdownTimer) -> Void in self.updateUI() }
+
+    touchBarStartButton.action = #selector(self.handleStartButton)
+    touchBarStartButton.target = self
+    touchBarStartButton.bind("title", to: self.startButton as Any, withKeyPath: "title", options: nil)
 
     self.updateUI()
   }
@@ -101,11 +105,7 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
     let customViewItem = NSCustomTouchBarItem(identifier: identifier)
     switch identifier {
     case NSTouchBarItemIdentifier.startPauseItem:
-      customViewItem.view = self.touchBarStartButton ?? {
-        let button = NSButton(title: "", target: self, action: #selector(self.handleStartButton))
-        button.bind("title", to: self.startButton as Any, withKeyPath: "title", options: nil)
-        return button
-      }()
+      customViewItem.view = self.touchBarStartButton
       customViewItem.customizationLabel = "Start button"
       return customViewItem
     case NSTouchBarItemIdentifier.resetItem:
