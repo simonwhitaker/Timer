@@ -101,14 +101,11 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
     let customViewItem = NSCustomTouchBarItem(identifier: identifier)
     switch identifier {
     case NSTouchBarItemIdentifier.startPauseItem:
-      if self.touchBarStartButton == nil {
-        self.touchBarStartButton = {
-          let button = NSButton(title: "", target: self, action: #selector(self.handleStartButton))
-          button.bind("title", to: self.startButton as Any, withKeyPath: "title", options: nil)
-          return button
-        }()
-      }
-      customViewItem.view = self.touchBarStartButton!
+      customViewItem.view = self.touchBarStartButton ?? {
+        let button = NSButton(title: "", target: self, action: #selector(self.handleStartButton))
+        button.bind("title", to: self.startButton as Any, withKeyPath: "title", options: nil)
+        return button
+      }()
       customViewItem.customizationLabel = "Start button"
       return customViewItem
     case NSTouchBarItemIdentifier.resetItem:
