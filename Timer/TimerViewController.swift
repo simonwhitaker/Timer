@@ -15,6 +15,7 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
 
   var countdownTimer = CountdownTimer(duration: 5 * 60)
   var uiUpdateTimer: Timer?
+  var touchBarStartButton: NSButton?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -100,7 +101,14 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
     let customViewItem = NSCustomTouchBarItem(identifier: identifier)
     switch identifier {
     case NSTouchBarItemIdentifier.startPauseItem:
-      customViewItem.view = NSButton(title: "Start/Pause", target: self, action: #selector(self.handleStartButton))
+      if self.touchBarStartButton == nil {
+        self.touchBarStartButton = {
+          let button = NSButton(title: "", target: self, action: #selector(self.handleStartButton))
+          button.bind("title", to: self.startButton as Any, withKeyPath: "title", options: nil)
+          return button
+        }()
+      }
+      customViewItem.view = self.touchBarStartButton!
       return customViewItem
     case NSTouchBarItemIdentifier.resetItem:
       customViewItem.view = NSButton(title: "Reset", target: self, action: #selector(self.handleResetButton))
