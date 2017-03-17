@@ -109,12 +109,15 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
         }()
       }
       customViewItem.view = self.touchBarStartButton!
+      customViewItem.customizationLabel = "Start button"
       return customViewItem
     case NSTouchBarItemIdentifier.resetItem:
       customViewItem.view = NSButton(title: "Reset", target: self, action: #selector(self.handleResetButton))
+      customViewItem.customizationLabel = "Reset button"
       return customViewItem
     case NSTouchBarItemIdentifier.addTimerItem:
       customViewItem.view = NSButton(title: "Add Timer", target: self, action: #selector(self.handleAddTimerButton))
+      customViewItem.customizationLabel = "Add Timer button"
       return customViewItem
     default:
       return nil
@@ -124,6 +127,4 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
   func handleAddTimerButton() {
     NSDocumentController.shared().newDocument(self)
   }
-
 }
-
