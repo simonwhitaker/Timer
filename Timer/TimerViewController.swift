@@ -15,7 +15,19 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
   var uiUpdateTimer: Timer?
 
   let countdownTimer = CountdownTimer(duration: 5 * 60)
-  let touchBarStartButton = NSButton(title: "", target: nil, action: nil)
+
+  let touchBarStartButton: NSButton
+
+  required init?(coder: NSCoder) {
+    if #available(OSX 10.12.2, *) {
+      touchBarStartButton = NSButton(image: NSImage(named: NSImageNameTouchBarPlayTemplate)!, target:nil, action:nil)
+    } else {
+      touchBarStartButton = NSButton()
+    }
+    super.init(coder: coder)
+    touchBarStartButton.target = self
+    touchBarStartButton.action = #selector(self.handleStartButton)
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,10 +37,6 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
 
     self.countdownTimer.tickCallback = {(timer: CountdownTimer) -> Void in self.updateUI() }
     self.countdownTimer.didCompleteCallback = {(timer: CountdownTimer) -> Void in self.updateUI() }
-
-    touchBarStartButton.action = #selector(self.handleStartButton)
-    touchBarStartButton.target = self
-    touchBarStartButton.bind("title", to: self.startButton as Any, withKeyPath: "title", options: nil)
 
     self.updateUI()
   }
@@ -78,10 +86,19 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
     switch state {
     case .Running:
       self.startButton?.title = "Pause"
+      if #available(OSX 10.12.2, *) {
+        self.touchBarStartButton.image = NSImage(named: NSImageNameTouchBarPauseTemplate)
+      }
     case .Initialized, .Complete:
       self.startButton?.title = "Start"
+      if #available(OSX 10.12.2, *) {
+        self.touchBarStartButton.image = NSImage(named: NSImageNameTouchBarPlayTemplate)
+      }
     case .Paused:
       self.startButton?.title = "Resume"
+      if #available(OSX 10.12.2, *) {
+        self.touchBarStartButton.image = NSImage(named: NSImageNameTouchBarPlayTemplate)
+      }
     }
 
     self.timeLabel?.isEditable = state == .Initialized
@@ -109,11 +126,11 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
       customViewItem.customizationLabel = "Start button"
       return customViewItem
     case NSTouchBarItemIdentifier.resetItem:
-      customViewItem.view = NSButton(title: "Reset", target: self, action: #selector(self.handleResetButton))
+      customViewItem.view = NSButton(image: NSImage(named: NSImageNameTouchBarRefreshTemplate)!, target: self, action: #selector(self.handleResetButton))
       customViewItem.customizationLabel = "Reset button"
       return customViewItem
     case NSTouchBarItemIdentifier.addTimerItem:
-      customViewItem.view = NSButton(title: "Add Timer", target: self, action: #selector(self.handleAddTimerButton))
+      customViewItem.view = NSButton(image: NSImage(named: NSImageNameTouchBarAddTemplate)!, target: self, action: #selector(self.handleAddTimerButton))
       customViewItem.customizationLabel = "Add Timer button"
       return customViewItem
     default:
