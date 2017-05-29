@@ -18,6 +18,7 @@
 		F4C6E5071E6F52C900AAE4C9 /* TimeIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6E5061E6F52C900AAE4C9 /* TimeIntervalFormatter.swift */; };
 		F4E05E331E6DF6EA00D58737 /* TimerDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E05E321E6DF6EA00D58737 /* TimerDocument.swift */; };
 		F4E05E351E6DF9DB00D58737 /* TimerWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E05E341E6DF9DB00D58737 /* TimerWindowController.swift */; };
+		F4FE5C0F1EDBE69200EEB933 /* SystemSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FE5C0E1EDBE69200EEB933 /* SystemSound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		F4C6E5061E6F52C900AAE4C9 /* TimeIntervalFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalFormatter.swift; sourceTree = "<group>"; };
 		F4E05E321E6DF6EA00D58737 /* TimerDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerDocument.swift; sourceTree = "<group>"; };
 		F4E05E341E6DF9DB00D58737 /* TimerWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerWindowController.swift; sourceTree = "<group>"; };
+		F4FE5C0E1EDBE69200EEB933 /* SystemSound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemSound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				F43766CA1E6C040900C43244 /* Assets.xcassets */,
 				F43766CC1E6C040900C43244 /* Main.storyboard */,
 				F43766CF1E6C040900C43244 /* Info.plist */,
+				F4FE5C0E1EDBE69200EEB933 /* SystemSound.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			files = (
 				4A4D432E1E79DCCB0007010E /* TouchBarIdentifiers.swift in Sources */,
 				F4C6E5071E6F52C900AAE4C9 /* TimeIntervalFormatter.swift in Sources */,
+				F4FE5C0F1EDBE69200EEB933 /* SystemSound.swift in Sources */,
 				F4E05E331E6DF6EA00D58737 /* TimerDocument.swift in Sources */,
 				F4E05E351E6DF9DB00D58737 /* TimerWindowController.swift in Sources */,
 				F43766C91E6C040900C43244 /* TimerViewController.swift in Sources */,
@@ -449,6 +453,7 @@
 				F489C8F41E7B32E900711E04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
