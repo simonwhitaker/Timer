@@ -25,7 +25,7 @@ class TimerTests: XCTestCase {
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     let duration = 1.0
     let t = CountdownTimer(duration: duration)
-    XCTAssert(abs(t.initialDuration - duration) < DBL_EPSILON, "Newly initialized timer has the wrong duration")
+    XCTAssert(abs(t.initialDuration - duration) < Double.ulpOfOne, "Newly initialized timer has the wrong duration")
     XCTAssert(t.state == .Initialized, "Newly initialized timer has state other than .Initialized")
   }
 
