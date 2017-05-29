@@ -18,6 +18,8 @@
 		F4C6E5071E6F52C900AAE4C9 /* TimeIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6E5061E6F52C900AAE4C9 /* TimeIntervalFormatter.swift */; };
 		F4E05E331E6DF6EA00D58737 /* TimerDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E05E321E6DF6EA00D58737 /* TimerDocument.swift */; };
 		F4E05E351E6DF9DB00D58737 /* TimerWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E05E341E6DF9DB00D58737 /* TimerWindowController.swift */; };
+		F4E27C631EDBF0710027E390 /* SystemSoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E27C621EDBF0710027E390 /* SystemSoundTests.swift */; };
+		F4E27C641EDBF0F30027E390 /* SystemSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FE5C0E1EDBE69200EEB933 /* SystemSound.swift */; };
 		F4FE5C0F1EDBE69200EEB933 /* SystemSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FE5C0E1EDBE69200EEB933 /* SystemSound.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,7 @@
 		F4C6E5061E6F52C900AAE4C9 /* TimeIntervalFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalFormatter.swift; sourceTree = "<group>"; };
 		F4E05E321E6DF6EA00D58737 /* TimerDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerDocument.swift; sourceTree = "<group>"; };
 		F4E05E341E6DF9DB00D58737 /* TimerWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerWindowController.swift; sourceTree = "<group>"; };
+		F4E27C621EDBF0710027E390 /* SystemSoundTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemSoundTests.swift; sourceTree = "<group>"; };
 		F4FE5C0E1EDBE69200EEB933 /* SystemSound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemSound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +133,7 @@
 		F489C8EC1E7B32E900711E04 /* TimerTests */ = {
 			isa = PBXGroup;
 			children = (
+				F4E27C621EDBF0710027E390 /* SystemSoundTests.swift */,
 				F489C8ED1E7B32E900711E04 /* TimerTests.swift */,
 				F489C8EF1E7B32E900711E04 /* Info.plist */,
 			);
@@ -254,7 +258,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4E27C631EDBF0710027E390 /* SystemSoundTests.swift in Sources */,
 				F489C8EE1E7B32E900711E04 /* TimerTests.swift in Sources */,
+				F4E27C641EDBF0F30027E390 /* SystemSound.swift in Sources */,
 				F489C8F51E7B352C00711E04 /* CountdownTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
