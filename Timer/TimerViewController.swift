@@ -20,7 +20,7 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
 
   required init?(coder: NSCoder) {
     if #available(OSX 10.12.2, *) {
-      touchBarStartButton = NSButton(image: NSImage(named: NSImageNameTouchBarPlayTemplate)!, target:nil, action:nil)
+      touchBarStartButton = NSButton(image: NSImage(named: NSImage.Name.touchBarPlayTemplate)!, target:nil, action:nil)
     } else {
       touchBarStartButton = NSButton()
     }
@@ -87,17 +87,17 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
     case .Running:
       self.startButton?.title = "Pause"
       if #available(OSX 10.12.2, *) {
-        self.touchBarStartButton.image = NSImage(named: NSImageNameTouchBarPauseTemplate)
+        self.touchBarStartButton.image = NSImage(named: NSImage.Name.touchBarPauseTemplate)
       }
     case .Initialized, .Complete:
       self.startButton?.title = "Start"
       if #available(OSX 10.12.2, *) {
-        self.touchBarStartButton.image = NSImage(named: NSImageNameTouchBarPlayTemplate)
+        self.touchBarStartButton.image = NSImage(named: NSImage.Name.touchBarPlayTemplate)
       }
     case .Paused:
       self.startButton?.title = "Resume"
       if #available(OSX 10.12.2, *) {
-        self.touchBarStartButton.image = NSImage(named: NSImageNameTouchBarPlayTemplate)
+        self.touchBarStartButton.image = NSImage(named: NSImage.Name.touchBarPlayTemplate)
       }
     }
 
@@ -118,19 +118,19 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
   }
 
   @available(OSX 10.12.2, *)
-  func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItemIdentifier) -> NSTouchBarItem? {
+  func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
     let customViewItem = NSCustomTouchBarItem(identifier: identifier)
     switch identifier {
-    case NSTouchBarItemIdentifier.startPauseItem:
+    case NSTouchBarItem.Identifier.startPauseItem:
       customViewItem.view = self.touchBarStartButton
       customViewItem.customizationLabel = "Start button"
       return customViewItem
-    case NSTouchBarItemIdentifier.resetItem:
-      customViewItem.view = NSButton(image: NSImage(named: NSImageNameTouchBarRefreshTemplate)!, target: self, action: #selector(self.handleResetButton))
+    case NSTouchBarItem.Identifier.resetItem:
+      customViewItem.view = NSButton(image: NSImage(named: NSImage.Name.touchBarRefreshTemplate)!, target: self, action: #selector(self.handleResetButton))
       customViewItem.customizationLabel = "Reset button"
       return customViewItem
-    case NSTouchBarItemIdentifier.addTimerItem:
-      customViewItem.view = NSButton(image: NSImage(named: NSImageNameTouchBarAddTemplate)!, target: self, action: #selector(self.handleAddTimerButton))
+    case NSTouchBarItem.Identifier.addTimerItem:
+      customViewItem.view = NSButton(image: NSImage(named: NSImage.Name.touchBarAddTemplate)!, target: self, action: #selector(self.handleAddTimerButton))
       customViewItem.customizationLabel = "Add Timer button"
       return customViewItem
     default:
@@ -138,7 +138,7 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
     }
   }
 
-  func handleAddTimerButton() {
-    NSDocumentController.shared().newDocument(self)
+  @objc func handleAddTimerButton() {
+    NSDocumentController.shared.newDocument(self)
   }
 }

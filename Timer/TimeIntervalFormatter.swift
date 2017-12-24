@@ -55,10 +55,10 @@ class TimeIntervalFormatter: NumberFormatter {
     }
 
     var string = ""
-    for char in partialString.characters.reversed() {
+    for char in partialString.reversed() {
       if char != separatorCharacter {
         string = String(char) + string
-        if string.characters.count == 3 || string.characters.count == 6 {
+        if string.count == 3 || string.count == 6 {
           string.insert(separatorCharacter, at: string.index(string.startIndex, offsetBy: 1))
         }
       }

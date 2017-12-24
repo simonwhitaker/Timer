@@ -8,12 +8,14 @@
 
 import AppKit
 
-extension NSTouchBarItemIdentifier {
-  static let addTimerItem = NSTouchBarItemIdentifier("org.netcetera.Timer.addTimer")
-  static let startPauseItem = NSTouchBarItemIdentifier("org.netcetera.Timer.startPause")
-  static let resetItem = NSTouchBarItemIdentifier("org.netcetera.Timer.reset")
+@available(OSX 10.12.2, *)
+extension NSTouchBarItem.Identifier {
+  static let addTimerItem = NSTouchBarItem.Identifier("org.netcetera.Timer.addTimer")
+  static let startPauseItem = NSTouchBarItem.Identifier("org.netcetera.Timer.startPause")
+  static let resetItem = NSTouchBarItem.Identifier("org.netcetera.Timer.reset")
 }
 
-extension NSTouchBarCustomizationIdentifier {
-  static let timerBar = NSTouchBarCustomizationIdentifier("org.netcetera.Timer.timerBar")
+@available(OSX 10.12.2, *)
+extension NSTouchBar.CustomizationIdentifier {
+  static let timerBar = NSTouchBar.CustomizationIdentifier("org.netcetera.Timer.timerBar")
 }
