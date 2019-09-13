@@ -17,5 +17,5 @@ extension NSTouchBarItem.Identifier {
 
 @available(OSX 10.12.2, *)
 extension NSTouchBar.CustomizationIdentifier {
-  static let timerBar = NSTouchBar.CustomizationIdentifier("org.netcetera.Timer.timerBar")
+  static let timerBar = "org.netcetera.Timer.timerBar"
 }

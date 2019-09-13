@@ -71,7 +71,7 @@ class CountdownTimer {
         self.stopTickTimer()
       }
     })
-    RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
+    RunLoop.current.add(timer, forMode: RunLoop.Mode.default)
     timer.fire()
     self.tickTimer = timer
   }

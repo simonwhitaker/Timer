@@ -20,7 +20,7 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
 
   required init?(coder: NSCoder) {
     if #available(OSX 10.12.2, *) {
-      touchBarStartButton = NSButton(image: NSImage(named: NSImage.Name.touchBarPlayTemplate)!, target:nil, action:nil)
+      touchBarStartButton = NSButton(image: NSImage(named: NSImage.touchBarPlayTemplateName)!, target:nil, action:nil)
     } else {
       touchBarStartButton = NSButton()
     }
@@ -87,17 +87,17 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
     case .Running:
       self.startButton?.title = "Pause"
       if #available(OSX 10.12.2, *) {
-        self.touchBarStartButton.image = NSImage(named: NSImage.Name.touchBarPauseTemplate)
+        self.touchBarStartButton.image = NSImage(named: NSImage.touchBarPauseTemplateName)
       }
     case .Initialized, .Complete:
       self.startButton?.title = "Start"
       if #available(OSX 10.12.2, *) {
-        self.touchBarStartButton.image = NSImage(named: NSImage.Name.touchBarPlayTemplate)
+        self.touchBarStartButton.image = NSImage(named: NSImage.touchBarPlayTemplateName)
       }
     case .Paused:
       self.startButton?.title = "Resume"
       if #available(OSX 10.12.2, *) {
-        self.touchBarStartButton.image = NSImage(named: NSImage.Name.touchBarPlayTemplate)
+        self.touchBarStartButton.image = NSImage(named: NSImage.touchBarPlayTemplateName)
       }
     }
 
@@ -126,11 +126,11 @@ class TimerViewController: NSViewController, NSTextFieldDelegate, NSTouchBarDele
       customViewItem.customizationLabel = "Start button"
       return customViewItem
     case NSTouchBarItem.Identifier.resetItem:
-      customViewItem.view = NSButton(image: NSImage(named: NSImage.Name.touchBarRefreshTemplate)!, target: self, action: #selector(self.handleResetButton))
+      customViewItem.view = NSButton(image: NSImage(named: NSImage.touchBarRefreshTemplateName)!, target: self, action: #selector(self.handleResetButton))
       customViewItem.customizationLabel = "Reset button"
       return customViewItem
     case NSTouchBarItem.Identifier.addTimerItem:
-      customViewItem.view = NSButton(image: NSImage(named: NSImage.Name.touchBarAddTemplate)!, target: self, action: #selector(self.handleAddTimerButton))
+      customViewItem.view = NSButton(image: NSImage(named: NSImage.touchBarAddTemplateName)!, target: self, action: #selector(self.handleAddTimerButton))
       customViewItem.customizationLabel = "Add Timer button"
       return customViewItem
     default:
